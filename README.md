@@ -1,6 +1,6 @@
 # CS52 Workshop, 5/10/18:  Learning to use Docker
 
-![](https://media.giphy.com/media/rCQTCy4rvuxR6/giphy.gif)
+![](https://giphy.com/gifs/rCQTCy4rvuxR6/html5)
 
 Brief motivation here as well as in presentation
 
@@ -14,6 +14,7 @@ To set up for this workshop, please follow the steps below (the same steps that 
 ### If you have already downloaded Docker and completed the set-up, please skip to Setup - Step 2
 
 *1. Download the Docker desktop app from the links below:* 
+   
    MAC :apple:: https://docs.docker.com/docker-for-mac/install/
 
    WINDOWS :microsoft:: https://docs.docker.com/docker-for-windows/install/
