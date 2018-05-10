@@ -200,11 +200,11 @@ No matter where ```docker run``` executes, it pulls your image, along with Pytho
 
 * [X] Set up Docker
 
-* [ ] Create an *image*
+* [X] Create an *image*
 
-* [ ] Upload an *image* to a *registry*
+* [X] Upload an *image* to a *registry*
 
-* [ ] Download and run an *image* on another machine.
+* [X] Download and run an *image* on another machine.
 
 ## Resources
 
