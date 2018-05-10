@@ -17,7 +17,7 @@ To set up for this workshop, please follow the steps below (the same steps that 
 
    MAC :apple:: https://docs.docker.com/docker-for-mac/install/
 
-   WINDOWS :microsoft:: https://docs.docker.com/docker-for-windows/install/
+   WINDOWS: https://docs.docker.com/docker-for-windows/install/
 
    Please set up an account with Docker and follow all installation steps.
 
@@ -84,7 +84,7 @@ CONTAINER ID     IMAGE           COMMAND      CREATED            STATUS
 ```
 Congratulations! Docker is working correctly. You can delete the test directory now.
 
-## Step by Step
+## Step 2
 
 Now that you're set up, we're going to start building our app! We'll start with the bottom of a heirarchy,
 building a new *container*. We'll then move on to build a *service*, the second level of the app that defines relationships
@@ -95,7 +95,7 @@ We'll first begin by writing an *image*, which explains how to build a container
 
 1. ```cd``` into the *ws-5-10-deployment-docker* directory. Create a new dockerfile by typing ```atom Dockerfile``` into the command line.
 
-2. Copy and pase the following code into Dockerfile.
+2. Copy and paste the following code into Dockerfile.
 
 
          # Use an official Python runtime as a parent image
@@ -157,7 +157,7 @@ Great! Adding requirements.txt and app.py to the folder completes the app. When 
 into an *image*, the ```ADD``` command will make sure both files are present in the container. You have already
 set up an environment in flask and Python, even if you didn't realize it :smile:
 
-Now, lets go ahead and build the app. Please go to the top level directory and call  ```docker build -t friendlyhello .```
+Now, let's go ahead and build the app. Please go to the top level directory and call  ```docker build -t friendlyhello .```
 
 Now run ```docker image ls``` to see the *image*:
 
@@ -165,7 +165,7 @@ The output should look like this:
     ```
    REPOSITORY            TAG                 IMAGE ID
    friendlyhello         latest              326387cea398
-    ```
+    ```. It is okay if you also see ```hello-world              latest              e38bc07ac18e```.
 
 We're finally ready to start our app. Run ```docker run -p 8080:80 friendlyhello``` to start the app and map your computer's port 8080 to the container’s port 80. Note we specify the app should be run at the container's port 80 in app.py.
 
