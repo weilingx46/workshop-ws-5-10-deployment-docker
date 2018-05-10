@@ -188,7 +188,7 @@ First we will push our app to a *registry*. A registry is just a collection of r
 
 Log into Docker's public registry by running ```docker login```.
 
-Next, tag your application. This is how we assign a version to our application so that later we can retrieve this specific version. To do so, run ```docker tag friendlyhello USERNAME/getting-started:tag-youre-it```. Remember ```friendlyhello``` is the name of our *image*. ```getting-started``` is the name of the repository we will upload to, and ```tag-youre-it``` is the version we're assigning to our app.
+Next, tag your application. This is how we assign a version to our application so that later we can retrieve this specific version. To do so, run ```docker tag friendlyhello USERNAME/getting-started:tag-youre-it```. Remember ```friendlyhello``` is the name of our *image*. ```USERNAME``` is the username of your docker account. ```getting-started``` is the name of the repository we will upload to, and ```tag-youre-it``` is the version we're assigning to our app.
 
 Now run ```docker push USERNAME/getting-started:tag-youre-it``` to upload your app to the registry.
 
