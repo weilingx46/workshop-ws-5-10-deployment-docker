@@ -71,6 +71,9 @@ You will get the following response:
  Storage Driver: overlay2
  ...
  ```
+ 
+ If you get an error on Windows, launch Kinematic, then delete and reset the VM: https://github.com/moby/moby/issues/30239
+ 
 
  D. Test to make sure Docker is working properly, run a simple hello world test:
  ```
