@@ -95,9 +95,8 @@ Congratulations! Docker is working correctly. You can delete the test directory 
 
 ## Step 2
 
-Now that you're set up, we're going to start building our app! We'll start with the bottom of a heirarchy,
-building a new *container*. We'll then move on to build a *service*, the second level of the app that defines relationships
-between multiple containers. Finally, we'll deploy our app using a *stack*, which defines interactios between all of the services.
+Now that you're set up, we're going to start the first step towards building our app! We'll start with the bottom of a heirarchy, building a new *container*. In the interest of time, we will stop at this, but if you are interested, the next steps towards building a complete app consits in building a *service*, the second level of the app that defines relationships
+between multiple containers, and then deploy the app using a *stack*, which defines interactios between all of the services.
 
 We'll first begin by writing an *image*, which explains how to build a container. *Images* are defined by something called a
 *Dockerfile*.
