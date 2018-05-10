@@ -17,9 +17,9 @@ To set up for this workshop, please follow the steps below (the same steps that 
 
    MAC :apple:: https://docs.docker.com/docker-for-mac/install/
 
-   WINDOWS :microsoft:: (Pro + Hyper-V): https://docs.docker.com/docker-for-windows/install/
+   WINDOWS:microsoft: (Pro + Hyper-V): https://docs.docker.com/docker-for-windows/install/
    
-   WINDOWS :microsoft:: (Home + Community): https://docs.docker.com/toolbox/toolbox_install_windows/
+   WINDOWS:microsoft: (Home + Community): https://docs.docker.com/toolbox/toolbox_install_windows/
 
    Please set up an account with Docker and follow all installation steps.
 
@@ -77,6 +77,8 @@ This message shows that your installation appears to be working correctly.
 ```
 
 You've made your first container, *hello-world*!
+
+REMINDER: An image is an executable package that includes everything needed to run an application--the code, a runtime, libraries, environment variables, and configuration files.
 
 Next, run ```docker image ls``` to confirm that the image was downloaded correctly, and then
 ```docker container ls --all```  to confirm that the container was built properly.
