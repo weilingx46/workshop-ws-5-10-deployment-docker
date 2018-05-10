@@ -10,40 +10,40 @@ Summary of what we're about to do.
 
 ## Setup
 
-To set up for this workshop, please follow the steps below (the same steps that were slacked out last night). 
+To set up for this workshop, please follow the steps below (the same steps that were slacked out last night).
 ### If you have already downloaded Docker and completed the set-up, please skip to Setup - Step 2
 
-*1. Download the Docker desktop app from the links below:* 
-   
+*1. Download the Docker desktop app from the links below:*
+
    MAC :apple:: https://docs.docker.com/docker-for-mac/install/
 
    WINDOWS :microsoft:: https://docs.docker.com/docker-for-windows/install/
- 
-   Please set up an account with Docker and follow all installation steps. 
+
+   Please set up an account with Docker and follow all installation steps.
 
 
 *2. Test to see if Docker properly installed:*
 
-A. Please make a new directory, *Test*, that is not in the main workshop directory. ```Cd``` into the directory. 
+A. Please make a new directory, *Test*, that is not in the main workshop directory. ```Cd``` into the directory.
 
-Please run the following commands on Terminal to confirm that Docker is installed correctly. 
+Please run the following commands on Terminal to confirm that Docker is installed correctly.
 
 B. Run docker --version and ensure that you have a supported version of Docker:
 
 ```shell
  docker --version
 ```
-You should get a response with this version or higher. 
+You should get a response with this version or higher.
 ```shell
  Docker version 17.12.0-ce, build c97c6d6
  ```
- 
+
  C. Run docker info to view even more details about your docker installation:
 
 ```shell
 docker info
 ```
-You will get the following response: 
+You will get the following response:
  Containers: 0
   Running: 0
   Paused: 0
@@ -52,8 +52,8 @@ You will get the following response:
  Server Version: 17.12.0-ce
  Storage Driver: overlay2
  ...
- 
- D. Test to make sure Docker is working properly, run a simple hello world test: 
+
+ D. Test to make sure Docker is working properly, run a simple hello world test:
  ```
  docker run hello-world
 ```
@@ -73,29 +73,29 @@ This message shows that your installation appears to be working correctly.
 
 You've made your first container, *hello-world*!
 
-Next, run ```docker image ls``` to see confirm that the image was downloaded correctly, and then 
-```docker container ls --all```  to confirm that the container was built properly. 
+Next, run ```docker image ls``` to confirm that the image was downloaded correctly, and then
+```docker container ls --all```  to confirm that the container was built properly.
 
-You will see a response on terminal that looks like: 
+You will see a response on terminal that looks like:
 
 ```
 CONTAINER ID     IMAGE           COMMAND      CREATED            STATUS
 54f4984ed6a8     hello-world     "/hello"     20 seconds ago     Exited (0) 19 seconds ago
 ```
-Congratulations! Docker is working correctly. You can delete the test directory now. 
+Congratulations! Docker is working correctly. You can delete the test directory now.
 
 ## Step by Step
 
-Now that you're set up, we're going to start building our app! We'll start with the bottom of a heirarchy, 
+Now that you're set up, we're going to start building our app! We'll start with the bottom of a heirarchy,
 building a new *container*. We'll then move on to build a *service*, the second level of the app that defines relationships
-between multiple containers. Finally, we'll deploy our app using a *stack*, which defines interactios between all of the services. 
+between multiple containers. Finally, we'll deploy our app using a *stack*, which defines interactios between all of the services.
 
-We'll first begin by writing an *image*, which explains how to build a container. *Images* are defined by something called a 
-*Dockerfile*. 
+We'll first begin by writing an *image*, which explains how to build a container. *Images* are defined by something called a
+*Dockerfile*.
 
-1. ```cd``` into the *ws-5-10-deployment-docker* directory. Create a new dockerfile by typing ```atom Dockerfile``` into the command line. 
+1. ```cd``` into the *ws-5-10-deployment-docker* directory. Create a new dockerfile by typing ```atom Dockerfile``` into the command line.
 
-2. Copy and pase the following code into Dockerfile. The comments creates 
+2. Copy and pase the following code into Dockerfile. The comments creates
 
 
          # Use an official Python runtime as a parent image
@@ -119,15 +119,15 @@ We'll first begin by writing an *image*, which explains how to build a container
          # Run app.py when the container launches
          CMD ["python", "app.py"]
 
-3. Create two new files by calling ```atom requirements.txt app.py```. Make sure they are in the same folder as Dockerfile. 
+3. Create two new files by running ```atom requirements.txt app.py```. Make sure they are in the same folder as Dockerfile.
 
-4. Please copy the following code into ```requirements.txt```: 
+4. Please copy the following code into ```requirements.txt```:
     ```
     Flask
     Redis
     ```
- And this code into app.py: 
- 
+ And this code into app.py:
+
          from flask import Flask
          from redis import Redis, RedisError
          import os
@@ -153,40 +153,40 @@ We'll first begin by writing an *image*, which explains how to build a container
          if __name__ == "__main__":
              app.run(host='0.0.0.0', port=80)
 
-Great! Adding requirements.txt and app.py to the folder completes the app. When Dockerfile is called and is built 
+Great! Adding requirements.txt and app.py to the folder completes the app. When Dockerfile is called and is built
 into an *image*, the ```ADD``` command will make sure both files are present in the container. You have already
 set up an environment in flask and Python, even if you didn't realize it :smile:
 
 Now, lets go ahead and build the app. Please go to the top level directory and call  ```docker build -t friendlyhello .```
 
-Now call the following to see the *image*: 
+Now run the ```docker image ls``` to see the *image*:
 
-    ```docker image ls    ```
-The output should look like this: 
+The output should look like this:
     ```
    REPOSITORY            TAG                 IMAGE ID
    friendlyhello         latest              326387cea398
     ```
- 
 
+We're finally ready to start our app. Run ```docker run -p 8080:80 friendlyhello``` to start the app and map your computer's port 8080 to the container’s port 80. Note we specify the app should be run at the container's port 80 in app.py.
 
+You should see a message that the app is running on ```http://0.0.0.0:80```. Since port 80 has been mapped to port 8080 on your computer, check ```http://localhost:8080``` to verify the app is running.
 
-* Explanations of the what **and** the why behind each step. Try to include:
-  * higher level concepts
-  * best practices
+Your browser should look like this:
+![screen shots are helpful](img/app-in-browser.png)
 
-Remember to explain any notation you are using.
+So what makes our app special? It is packaged with dependencies and can be run on any other machine. To demonstrate how portable our app is, let's try running it somewhere else.
 
-```javascript
-/* and use code blocks for any code! */
-```
+First we will push our app to a *registry*. A registry is just a collection of repositories, like on Github.
 
-![screen shots are helpful](img/screenshot.png)
+Log into Docker's public registry by running ```docker login```.
 
-:sunglasses: GitHub markdown files [support emoji notation](http://www.emoji-cheat-sheet.com/)
+Next, tag your application. This is how we assign a version to our application so that later we can retrieve this specific version. To do so, run ```docker tag friendlyhello USERNAME/getting-started:tag-youre-it```. Remember ```friendlyhello``` is the name of our *image*. ```getting-started``` is the name of the repository we will upload to, and ```tag-youre-it``` is the version we're assigning to our app.
 
-Here's a resource for [github markdown](https://guides.github.com/features/mastering-markdown/).
+Now run ```docker push USERNAME/getting-started:tag-youre-it``` to upload your app to the registry.
 
+From this point on, you can run your app on any computer by simply running ```docker run -p 8080:80 USERNAME/getting-started:tag-youre-it```.
+
+No matter where ```docker run``` executes, it pulls your image, along with Python and all the dependencies from ```requirements.txt```, and runs your code. It all travels together in a neat little package, and you don’t need to install anything on the host machine for Docker to run it.
 
 ## Summary / What you Learned
 
