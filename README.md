@@ -17,9 +17,9 @@ To set up for this workshop, please follow the steps below (the same steps that 
 
    MAC :apple:: https://docs.docker.com/docker-for-mac/install/
 
-   WINDOWS (Pro + Hyper-V): https://docs.docker.com/docker-for-windows/install/
+   WINDOWS:microsoft: (Pro + Hyper-V): https://docs.docker.com/docker-for-windows/install/
    
-   WINDOWS (Home + Community): https://docs.docker.com/toolbox/toolbox_install_windows/
+   WINDOWS:microsoft: (Home + Community): https://docs.docker.com/toolbox/toolbox_install_windows/
 
    Please set up an account with Docker and follow all installation steps.
 
@@ -101,7 +101,7 @@ between multiple containers, and then deploy the app using a *stack*, which defi
 We'll first begin by writing an *image*, which explains how to build a container. *Images* are defined by something called a
 *Dockerfile*.
 
-1. ```cd``` into the *ws-5-10-deployment-docker* directory. Create a new dockerfile by typing ```atom Dockerfile``` into the command line.
+1. Please fork the *ws-5-10-deployment-docker* directory here: https://github.com/dartmouth-cs52-18S/workshop-ws-5-10-deployment-docker. ```cd``` into the top level of this directory. Create a new dockerfile by typing ```atom Dockerfile``` into the command line.
 
 2. Copy and paste the following code into Dockerfile.
 
@@ -153,9 +153,9 @@ We'll first begin by writing an *image*, which explains how to build a container
              except RedisError:
                  visits = "<i>cannot connect to Redis, counter disabled</i>"
 
-             html = "<h3>Hello {name}!</h3>" \
+             html = "<h3>Congratulations, {name}! You've built your first container! We hope you have a great day :)</h3>" \
                     "<b>Hostname:</b> {hostname}<br/>" \
-                    "<b>Visits:</b> {visits}"
+                    "<b>Visits:</b> {visits}"          
              return html.format(name=os.getenv("NAME", "world"), hostname=socket.gethostname(), visits=visits)
 
          if __name__ == "__main__":
@@ -186,7 +186,7 @@ So what makes our app special? It is packaged with dependencies and can be run o
 
 First we will push our app to a *registry*. A registry is just a collection of repositories, like on Github.
 
-Log into Docker's public registry by running ```docker login``` and inputting your Docker account credentials.
+Log into Docker's public registry by running ```docker login```.
 
 Next, tag your application. This is how we assign a version to our application so that later we can retrieve this specific version. To do so, run ```docker tag friendlyhello USERNAME/getting-started:tag-youre-it```. Remember ```friendlyhello``` is the name of our *image*. ```getting-started``` is the name of the repository we will upload to, and ```tag-youre-it``` is the version we're assigning to our app.
 
