@@ -78,7 +78,7 @@ This message shows that your installation appears to be working correctly.
 
 You've made your first container, *hello-world*!
 
-REMINDER: An image is an executable package that includes everything needed to run an application--the code, a runtime, libraries, environment variables, and configuration files.
+>An image is an executable package that includes everything needed to run an application--the code, a runtime, libraries, environment variables, and configuration files.
 
 Next, run ```docker image ls``` to confirm that the image was downloaded correctly, and then
 ```docker container ls --all```  to confirm that the container was built properly.
