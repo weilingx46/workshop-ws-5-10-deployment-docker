@@ -26,11 +26,11 @@ To set up for this workshop, please follow the steps below (the same steps that 
    MAC :apple:: https://docs.docker.com/docker-for-mac/install/
 
    WINDOWS:microsoft: (Pro + Hyper-V): https://docs.docker.com/docker-for-windows/install/
-   
+
    WINDOWS:microsoft: (Home + Community): https://docs.docker.com/toolbox/toolbox_install_windows/
-   
+
    If you are on windows home or community, you will also need to install VirtualBox and run
-   
+
    ```switch
    docker-machine create default --virtualbox-no-vtx-check
    ```
@@ -71,9 +71,9 @@ You will get the following response:
  Storage Driver: overlay2
  ...
  ```
- 
+
  If you get an error on Windows, launch Kinematic, then delete and reset the VM: https://github.com/moby/moby/issues/30239
- 
+
 
  D. Test to make sure Docker is working properly, run a simple hello world test:
  ```
@@ -197,7 +197,7 @@ We're finally ready to start our app. Run ```docker run -p 8080:80 friendlyhello
 You should see a message that the app is running on ```http://0.0.0.0:80```. Since port 80 has been mapped to port 8080 on your computer, check ```http://localhost:8080``` to verify the app is running.
 
 Your browser should look like this:
-![screen shots are helpful](img/app-in-browser.png)
+![screen shots are helpful](img/docker-app.png)
 
 So what makes our app special? It is packaged with dependencies and can be run on any other machine. To demonstrate how portable our app is, let's try running it somewhere else.
 
