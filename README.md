@@ -8,6 +8,14 @@ Similar to a Java application, which will run exactly the same on any device cap
 
 We will build a simple image and upload it to a Github-like repository so that we can download and run it on any other computer.
 
+* [ ] Set up Docker
+
+* [ ] Create an *image*
+
+* [ ] Upload an *image* to a *registry*
+
+* [ ] Download and run an *image* on another machine.
+
 ## Setup
 
 To set up for this workshop, please follow the steps below (the same steps that were slacked out last night).
