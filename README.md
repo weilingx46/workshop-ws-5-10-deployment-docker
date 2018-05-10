@@ -28,6 +28,12 @@ To set up for this workshop, please follow the steps below (the same steps that 
    WINDOWS:microsoft: (Pro + Hyper-V): https://docs.docker.com/docker-for-windows/install/
    
    WINDOWS:microsoft: (Home + Community): https://docs.docker.com/toolbox/toolbox_install_windows/
+   
+   You will also need to install VirtualBox and run
+   
+   ```switch
+   docker-machine create default --virtualbox-no-vtx-check
+   ```
 
    Please set up an account with Docker and follow all installation steps.
 
