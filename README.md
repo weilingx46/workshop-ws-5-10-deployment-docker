@@ -2,11 +2,11 @@
 
 ![](https://giphy.com/gifs/rCQTCy4rvuxR6/html5)
 
-Brief motivation here as well as in presentation
+Similar to a Java application, which will run exactly the same on any device capable of running a Java Virtual Machine, a Docker container is guaranteed to be identical on any system that can run Docker. The exact specifications of a container are stored in a Dockerfile. By distributing this file among team members, an organization can guarantee that all images built from the same Dockerfile will function identically. In addition, having an environment that is constant and well-documented makes it easier to keep track of your application and identify problems.
 
 ## Overview
 
-Summary of what we're about to do.
+We will build a simple image and upload it to a Github-like repository so that we can download and run it on any other computer.
 
 ## Setup
 
@@ -190,8 +190,14 @@ No matter where ```docker run``` executes, it pulls your image, along with Pytho
 
 ## Summary / What you Learned
 
-* [ ] can be checkboxes
+* [ ] Set up Docker
+
+* [ ] Create an *image*
+
+* [ ] Upload an *image* to a *registry*
+
+* [ ] Download and run an *image* on another machine.
 
 ## Resources
 
-* cite any resources
+docker.com
