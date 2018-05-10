@@ -44,6 +44,8 @@ You should get a response with this version or higher.
 docker info
 ```
 You will get the following response:
+
+```
  Containers: 0
   Running: 0
   Paused: 0
@@ -52,6 +54,7 @@ You will get the following response:
  Server Version: 17.12.0-ce
  Storage Driver: overlay2
  ...
+ ```
 
  D. Test to make sure Docker is working properly, run a simple hello world test:
  ```
