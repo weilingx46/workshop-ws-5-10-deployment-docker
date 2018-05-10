@@ -198,7 +198,7 @@ No matter where ```docker run``` executes, it pulls your image, along with Pytho
 
 ## Summary / What you Learned
 
-* [ ] Set up Docker
+* [X] Set up Docker
 
 * [ ] Create an *image*
 
