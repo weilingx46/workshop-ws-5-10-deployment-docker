@@ -1,6 +1,6 @@
 # CS52 Workshop, 5/10/18:  Learning to use Docker
 
-![](https://giphy.com/gifs/rCQTCy4rvuxR6/html5)
+![](https://media.giphy.com/media/11I2JFqH6zo7D2/giphy.gif)
 
 Similar to a Java application, which will run exactly the same on any device capable of running a Java Virtual Machine, a Docker container is guaranteed to be identical on any system that can run Docker. The exact specifications of a container are stored in a Dockerfile. By distributing this file among team members, an organization can guarantee that all images built from the same Dockerfile will function identically. In addition, having an environment that is constant and well-documented makes it easier to keep track of your application and identify problems.
 
@@ -56,7 +56,7 @@ You should get a response with this version or higher.
 ```shell
 docker info
 ```
-You will get the following response:
+You will see a long response that begins with the following: 
 
 ```
  Containers: 0
@@ -104,12 +104,14 @@ CONTAINER ID     IMAGE           COMMAND      CREATED            STATUS
 ```
 Congratulations! Docker is working correctly. You can delete the test directory now.
 
+![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+
 ## Step 2
 
-Now that you're set up, we're going to start the first step towards building our app! We'll start with the bottom of a heirarchy, building a new *container*. In the interest of time, we will stop at this, but if you are interested, the next steps towards building a complete app consits in building a *service*, the second level of the app that defines relationships
-between multiple containers, and then deploy the app using a *stack*, which defines interactios between all of the services.
+Now that you're set up, we're going to start the first step towards building our app! We'll start with the bottom of a heirarchy, building a new *container*. In the interest of time we will stop at this. If you are interested, the next steps towards building a complete app would be to build a *service*, which defines relationships
+between multiple containers, and then deploy the app using a *stack*, which defines interactions between all of the services.
 
-We'll first begin by writing an *image*, which explains how to build a container. *Images* are defined by something called a
+We'll first begin by writing an *image* which explains how to build a container (like a blueprint). *Images* are defined by something called a
 *Dockerfile*.
 
 1. Please fork the *ws-5-10-deployment-docker* directory here: https://github.com/dartmouth-cs52-18S/workshop-ws-5-10-deployment-docker. ```cd``` into the top level of this directory. Create a new dockerfile by typing ```atom Dockerfile``` into the command line.
@@ -145,33 +147,33 @@ We'll first begin by writing an *image*, which explains how to build a container
     Flask
     Redis
     ```
- And this code into app.py:
+ And this code into app.py (NOTE: make sure there are no extra indents in the file...spacing matters in Python!):
+```
+from flask import Flask
+from redis import Redis, RedisError
+import os
+import socket
 
-         from flask import Flask
-         from redis import Redis, RedisError
-         import os
-         import socket
+# Connect to Redis
+redis = Redis(host="redis", db=0, socket_connect_timeout=2, socket_timeout=2)
 
-         # Connect to Redis
-         redis = Redis(host="redis", db=0, socket_connect_timeout=2, socket_timeout=2)
+app = Flask(__name__)
 
-         app = Flask(__name__)
+@app.route("/")
+def hello():
+    try:
+        visits = redis.incr("counter")
+    except RedisError:
+        visits = "<i>cannot connect to Redis, counter disabled</i>"
 
-         @app.route("/")
-         def hello():
-             try:
-                 visits = redis.incr("counter")
-             except RedisError:
-                 visits = "<i>cannot connect to Redis, counter disabled</i>"
+    html = "<h3>Congratulations, {name}! You've built your first container! We hope you have a great day :)</h3>" \
+           "<b>Hostname:</b> {hostname}<br/>" \
+           "<b>Visits:</b> {visits}"          
+    return html.format(name=os.getenv("NAME", "world"), hostname=socket.gethostname(), visits=visits)
 
-             html = "<h3>Congratulations, {name}! You've built your first container! We hope you have a great day :)</h3>" \
-                    "<b>Hostname:</b> {hostname}<br/>" \
-                    "<b>Visits:</b> {visits}"          
-             return html.format(name=os.getenv("NAME", "world"), hostname=socket.gethostname(), visits=visits)
-
-         if __name__ == "__main__":
-             app.run(host='0.0.0.0', port=80)
-
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=80)
+```
 Great! Adding requirements.txt and app.py to the folder completes the app. When Dockerfile is called and is built
 into an *image*, the ```ADD``` command will make sure both files are present in the container. You have already
 set up an environment in flask and Python, even if you didn't realize it :smile:
@@ -209,6 +211,14 @@ From this point on, you can run your app on any computer by simply running ```do
 
 No matter where ```docker run``` executes, it pulls your image, along with Python and all the dependencies from ```requirements.txt```, and runs your code. It all travels together in a neat little package, and you don’t need to install anything on the host machine for Docker to run it.
 
+### What to submit: 
+
+When you are finished, please commit your container and submit the forked GitHub repo on canvas.
+
+*If you would like to go further for extra credit*, feel free to complete parts 3, 4, 5 and 6 in the online tutorial below. 
+https://docs.docker.com/get-started/part3/. This workshop introduced you to part 1 and 2 already. 
+
+
 ## Summary / What you Learned
 
 * [X] Set up Docker
@@ -221,4 +231,5 @@ No matter where ```docker run``` executes, it pulls your image, along with Pytho
 
 ## Resources
 
-docker.com
+This workshop is inspired by parts 1 and 2 of the "Get-Started" tutorial on Docker's website: 
+https://docs.docker.com/get-started/part2/
