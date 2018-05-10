@@ -200,6 +200,8 @@ So what makes our app special? It is packaged with dependencies and can be run o
 
 First we will push our app to a *registry*. A registry is just a collection of repositories, like on Github.
 
+> Note: We use Docker’s public registry here just because it’s free and pre-configured, but there are many public ones to choose from, and you can even set up your own private registry using Docker Trusted Registry.
+
 Log into Docker's public registry by running ```docker login```.
 
 Next, tag your application. This is how we assign a version to our application so that later we can retrieve this specific version. To do so, run ```docker tag friendlyhello USERNAME/getting-started:tag-youre-it```. Remember ```friendlyhello``` is the name of our *image*. ```USERNAME``` is the username of your docker account. ```getting-started``` is the name of the repository we will upload to, and ```tag-youre-it``` is the version we're assigning to our app.
