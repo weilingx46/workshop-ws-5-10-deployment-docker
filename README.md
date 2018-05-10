@@ -177,7 +177,7 @@ We'll first begin by writing an *image*, which explains how to build a container
 
 Great! Adding requirements.txt and app.py to the folder completes the app. When Dockerfile is called and is built
 into an *image*, the ```ADD``` command will make sure both files are present in the container. You have already
-set up an environment in flask and Python, even if you didn't realize it :smile:
+set up an environment in flask and Python, even if you didn't realize it :smile: .  When the above ```Dockerfile``` is built into an image, ```app.py``` and ```requirements.txt``` is present because of that ```Dockerfile```’s ```ADD``` command, and the output from ```app.py``` is accessible over HTTP thanks to the ```EXPOSE``` command.
 
 Now, let's go ahead and build the app. Please go to the top level directory and call  ```docker build -t friendlyhello .```
 
