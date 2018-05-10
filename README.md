@@ -29,11 +29,8 @@ To set up for this workshop, please follow the steps below (the same steps that 
 
    WINDOWS:microsoft: (Home + Community): https://docs.docker.com/toolbox/toolbox_install_windows/
 
-   If you are on windows home or community, you will also need to install VirtualBox and run
+   If you are on windows home or community, we recommend you pair up with a partner for this workshop because we were unable to get the toolbox working. Feel free to try - extra credit if you make it work!
 
-   ```switch
-   docker-machine create default --virtualbox-no-vtx-check
-   ```
 
    Please set up an account with Docker and follow all installation steps.
 
@@ -71,9 +68,6 @@ You will get the following response:
  Storage Driver: overlay2
  ...
  ```
-
- If you get an error on Windows, launch Kinematic, then delete and reset the VM: https://github.com/moby/moby/issues/30239
-
 
  D. Test to make sure Docker is working properly, run a simple hello world test:
  ```
