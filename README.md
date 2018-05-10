@@ -19,7 +19,7 @@ We will build a simple image and upload it to a Github-like repository so that w
 ## Setup
 
 To set up for this workshop, please follow the steps below (the same steps that were slacked out last night).
-### If you have already downloaded Docker and completed the set-up, please skip to Setup - Step 2
+### If you have already downloaded Docker and completed the set-up, please skip to Step 2
 
 *1. Download the Docker desktop app from the links below:*
 
