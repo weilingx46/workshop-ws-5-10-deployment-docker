@@ -29,7 +29,7 @@ To set up for this workshop, please follow the steps below (the same steps that 
    
    WINDOWS:microsoft: (Home + Community): https://docs.docker.com/toolbox/toolbox_install_windows/
    
-   You will also need to install VirtualBox and run
+   If you are on windows home or community, you will also need to install VirtualBox and run
    
    ```switch
    docker-machine create default --virtualbox-no-vtx-check
