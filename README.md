@@ -95,7 +95,7 @@ We'll first begin by writing an *image*, which explains how to build a container
 
 1. ```cd``` into the *ws-5-10-deployment-docker* directory. Create a new dockerfile by typing ```atom Dockerfile``` into the command line.
 
-2. Copy and pase the following code into Dockerfile. The comments creates
+2. Copy and pase the following code into Dockerfile.
 
 
          # Use an official Python runtime as a parent image
@@ -159,7 +159,7 @@ set up an environment in flask and Python, even if you didn't realize it :smile:
 
 Now, lets go ahead and build the app. Please go to the top level directory and call  ```docker build -t friendlyhello .```
 
-Now run the ```docker image ls``` to see the *image*:
+Now run ```docker image ls``` to see the *image*:
 
 The output should look like this:
     ```
