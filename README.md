@@ -25,9 +25,9 @@ To set up for this workshop, please follow the steps below (the same steps that 
 
    MAC :apple:: https://docs.docker.com/docker-for-mac/install/
 
-   WINDOWS:microsoft: (Pro + Hyper-V): https://docs.docker.com/docker-for-windows/install/
+   WINDOWS (Pro + Hyper-V): https://docs.docker.com/docker-for-windows/install/
 
-   WINDOWS:microsoft: (Home + Community): https://docs.docker.com/toolbox/toolbox_install_windows/
+   WINDOWS (Home + Community): https://docs.docker.com/toolbox/toolbox_install_windows/
 
    If you are on windows home or community, we recommend you pair up with a partner for this workshop because we were unable to get the toolbox working. Feel free to try - extra credit if you make it work!
 
@@ -147,7 +147,7 @@ We'll first begin by writing an *image* which explains how to build a container 
     Flask
     Redis
     ```
- And this code into app.py (NOTE: make sure there are no extra indents in the file...spacing matters in Python!):
+ And this code into app.py *NOTE: make sure there are no extra indents in the file...spacing matters in Python!*:
 ```
 from flask import Flask
 from redis import Redis, RedisError
@@ -209,7 +209,7 @@ Now run ```docker push USERNAME/getting-started:tag-youre-it``` to upload your a
 
 From this point on, you can run your app on any computer by simply running ```docker run -p 8080:80 USERNAME/getting-started:tag-youre-it```.
 
-No matter where ```docker run``` executes, it pulls your image, along with Python and all the dependencies from ```requirements.txt```, and runs your code. It all travels together in a neat little package, and you don’t need to install anything on the host machine for Docker to run it.
+No matter where ```docker run``` executes, it pulls your image, along with Python and all the dependencies from ```requirements.txt```, and runs your code. It all travels together in a neat little package, and you don’t need to install a new environment on the host machine for Docker to run it.
 
 ### What to submit: 
 
@@ -233,3 +233,5 @@ https://docs.docker.com/get-started/part3/. This workshop introduced you to part
 
 This workshop is inspired by parts 1 and 2 of the "Get-Started" tutorial on Docker's website: 
 https://docs.docker.com/get-started/part2/
+
+![pirates](https://media.giphy.com/media/o0eOCNkn7cSD6/giphy.gif)
